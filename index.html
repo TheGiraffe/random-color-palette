@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Sophie's Random Color Palette Inspiration Tool</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+            body{
+                font-size: 1vw;
+                font-family: "Open Sans", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 400;
+                font-style: normal;
+            }
+            h1{
+                text-align: center;
+                margin: auto;
+                width: 80%;
+            }
+            .header{
+                text-align: center;
+                margin: auto;
+            }
+            #paletteNamePrint{
+                text-align: center;
+                margin: auto;
+                width: 80%;
+                display: none;
+            }
+            #printingDetails{
+                text-align: center;
+                margin: auto;
+                width: 80%;
+            }
+            button{
+                font-size: 1vw;
+                font-family: "Open Sans", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 400;
+                font-style: normal;
+            }
+            select{
+                font-size: 1vw;
+                font-family: "Open Sans", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 400;
+                font-style: normal;
+            }
+            input{
+                font-size: 1vw;
+                font-family: "Open Sans", sans-serif;
+                font-optical-sizing: auto;
+                font-weight: 400;
+                font-style: normal;
+            }
+            #paletteContainer{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                margin: 2%;
+                width: 96%;
+                background-color: black;
+                height: 50vh;
+                border-radius: 0.5rem;
+            }
+            .hexContainer{
+                background-color: rgba(255,255,255,0.5);
+                display: inline-block;
+                padding: 0.5rem;
+                border-radius: 0 0 0.5rem 0;
+            }
+            @media print{
+                .header{
+                    display: none;
+                }
+                #printingDetails{
+                    display: none;
+                }
+                .hexContainer{
+                    font-size: 1rem;
+                }
+                #paletteNamePrint{
+                    display: block;
+                    font-size: 1rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Sophie's Random Color Palette Inspiration Tool</h1>
+        <h2 id="paletteNamePrint"></h2>
+        <div class = "header">
+            <p>Click the button below to generate a new color palette.</p>
+            <p>Once a palette is generated, you can change individual colors by clicking on them.
+                You can either change a color randomly by pressing the Random Color button, or manually by using the color picker.
+                These options show up when you hover or click on the color.
+            </p>
+            <form id = "paletteForm">
+                <label for="numColors">Number of Colors in Palette:</label>
+                <select id="numColors" name="numColors">
+                    <option value="1">(1) Single Color</option>
+                    <option value="2">(2) 2-Color Palette</option>
+                    <option value="3">(3) 3-Color Palette</option>
+                    <option value="4">(4) 4-Color Palette</option>
+                    <option value="5">(5) 5-Color Palette</option>
+                    <option value="6">(6) 6-Color Palette</option>
+                </select>
+                <button id="colorBtn" onclick="generatePalette()">Generate Palette</button>
+            </form>
+        </div>
+        <div id = "paletteContainer">
+        </div>
+        <div id = "printingDetails">
+            <h3>Want to Print Your Palette?</h3>
+            <p>
+                If you do not see any colors in the Print Preview after pressing "Print Palette", make sure to check the "Background Graphics" option (if you're using Google Chrome).
+                Otherwise none of the palette colors will show up, only the hex codes!
+                In Google Chrome, this option is under "More Settings".
+            </p>
+            <label for="printName">Give the palette a name or ID to display on the printed page (Optional):</label>
+            <input type="text" name="printName" id="printName"/>
+            <button id="printPalette" onclick="printPalette()">Print Palette</button>
+        </div>
+
+        <script src="js/random-color.js"></script>
+    </body>
+</html>
