@@ -1,7 +1,7 @@
 # random-color-palette
 Sophie's Random Color Palette Inspiration Tool
 
-[Try it Out Here!]()
+[Try it Out Here!](https://thegiraffe.github.io/random-color-palette/)
 
 ### Here's an example of what the webpage looks like:
 ![Webpage Example](img/page-example.png)
